@@ -1,0 +1,19 @@
+{
+  "name": "simpleform",
+  "version": "1.0.0",
+  "description": "## Description  A simple application to test the use of mongodb, node, express without the need for angular. we shall use a simple index.html file.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ma-za-kpe/men-stack-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ma-za-kpe/men-stack-project/issues"
+  },
+  "homepage": "https://github.com/ma-za-kpe/men-stack-project#readme"
+}
