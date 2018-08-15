@@ -15,5 +15,13 @@
   "bugs": {
     "url": "https://github.com/ma-za-kpe/men-stack-project/issues"
   },
-  "homepage": "https://github.com/ma-za-kpe/men-stack-project#readme"
+  "homepage": "https://github.com/ma-za-kpe/men-stack-project#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.8"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.3"
+  }
 }
