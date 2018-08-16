@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <% include ../partials/head %>
+</head>
+
+<body class="container">
+  <header>
+    <% include ../partials/header %>
+  </header>
+  <div class="jumbotron">
+    <h1>MEN + EJS</h1>
+    <p>SIMPLE FORM USING NODE,EXPRESS,MONGODB AND EJS TEMPLATING</p>
+  </div>
+  <!-- <% include ../partials/form %> -->
+  <form method="post" action="http://localhost:3001/users">
+    <label>Enter Your Name</label><br>
+    <input type="text" name="firstName" placeholder="Enter first name...">
+    <input type="text" name="lastName" placeholder="Enter last name...">
+    <input type="submit" value="Add Name">
+  </form>
+
+
+
+  <footer>
+    <% include ../partials/footer %>
+  </footer>
+
+</body>
+
+</html>
