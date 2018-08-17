@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <% include ../partials/head %>
+</head>
+
+<body class="container">
+  <header>
+    <% include ../partials/header %>
+  </header>
+  <div class="jumbotron">
+    <h1>MEN + EJS</h1>
+    <p>SIMPLE FORM USING NODE,EXPRESS,MONGODB AND EJS TEMPLATING</p>
+  </div>
+  <!-- <% include ../partials/form %> -->
+
+  <form method="post" data-id="<%= id %>" action="http://localhost:3001/users/<%= id %>/update">
+    <label>Enter Your Name</label><br>
+    <input type="text" class="fn" name="firstName" placeholder="Enter first name...">
+    <input type="text" class="ln" name="lastName" placeholder="Enter last name...">
+    <input type="submit" value="Edit">
+  </form>
+
+  <footer>
+    <% include ../partials/footer %>
+  </footer>
+
+  <%include ../partials/script %>
+
+  <script type="text/javascript">
+  $( function(){
+    var id = $('form').attr('data-id');
+    getById(id);
+  });
+
+    function getById(id){
+      $.get('/users/'+id, function(data){
+        console.log(JSON.stringify(data));
+        var fn = data.firstName;
+        var ln = data.lastName;
+        $('.fn').val(fn);
+        $('.ln').val(ln);
+      });
+    }
+  </script>
+
+
+</body>
+
+</html>

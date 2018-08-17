@@ -16,8 +16,22 @@ app.get("/", (req, res) => {
 
   User.find({}, (err, docs) => {
        if (!err) {
-         res.render('pages/index')
-         //res.send(docs);
+         //res.render('pages/index')
+         res.send(docs);
+        }
+       else {
+          console.log('Error in Retriving Employees :' + JSON.stringify(err, undefined, 2));
+         }
+   });
+});
+
+app.get("/", (req, res) => {
+
+  User.find({}, (err, docs) => {
+       if (!err) {
+         //res.render('pages/index')
+         res.send(docs);
+
         }
        else {
           console.log('Error in Retriving Employees :' + JSON.stringify(err, undefined, 2));
@@ -29,12 +43,12 @@ app.get('/:id', (req, res) => {
     if (!ObjectId.isValid(req.params.id))
         return res.status(400).send(`No record with given id : ${req.params.id}`);
 
-    User.findById().toArray(req.params.id, (err, doc) => {
+    User.findById(req.params.id, (err, doc) => {
         if (!err) {
-           //res.send(doc);
-           res.render("pages/index", { doc } )
+           res.send(doc);
+           //res.render("pages/index", { doc } )
           }
-        else { console.log('Error in Retriving Employee :' + JSON.stringify(err, undefined, 2)); }
+        else { console.log('Error in Retriving User :' + JSON.stringify(err, undefined, 2)); }
     });
 });
 
@@ -51,6 +65,25 @@ app.post('/', (req, res) => {
          } else {
             console.log('Error in Employee Save :' + JSON.stringify(err, undefined, 2));
         }
+    });
+});
+
+app.post('/:id/update', (req, res) => {
+    if (!ObjectId.isValid(req.params.id))
+        return res.status(400).send(`No record with given id : ${req.params.id}`);
+
+    var user = {
+      firstName: req.body.firstName,
+      lastName: req.body.lastName
+    };
+
+    User.findByIdAndUpdate(req.params.id, { $set: user }, { new: true }, (err, doc) => {
+        if (!err) {
+        //  res.send(doc);
+          return res.redirect('/');
+
+        }
+        else { console.log('Error in User Update :' + JSON.stringify(err, undefined, 2)); }
     });
 });
 
